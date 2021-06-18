@@ -210,7 +210,7 @@ function CuboidMaker(atr) {
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 CuboidMaker.prototype.volume = function () {
-  //make a new prototype of CuboidMaker
+  //make a new prototype of CuboidMaker that gets the volume of the cuboid
   return this.length * this.width * this.height;
 };
 
@@ -219,6 +219,7 @@ CuboidMaker.prototype.volume = function () {
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
 CuboidMaker.prototype.surfaceArea = function () {
+  //make a new prototype of CuboidMaker that gets the surfaceArea of the cuboid
   return (
     2 *
     (this.length * this.width +
@@ -231,7 +232,7 @@ CuboidMaker.prototype.surfaceArea = function () {
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-const cuboid = new CuboidMaker({ length: 4, width: 5, height: 5 });
+const cuboid = new CuboidMaker({ length: 4, width: 5, height: 5 }); //create a new object of CuboidMaker names cuboid
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -242,14 +243,17 @@ const cuboid = new CuboidMaker({ length: 4, width: 5, height: 5 });
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo {
   constructor(atr) {
+    //make an object the old way with taking an object as its parameters
     this.length = atr.length;
     this.width = atr.width;
     this.height = atr.height;
   }
   volume() {
+    //make a new function of CuboidMakerTwo that gets the volume of the cuboid
     return this.length * this.width * this.height;
   }
   surfaceArea() {
+    //make a new prototype of CuboidMakerTwo that gets the surfaceArea of the cuboid
     return (
       2 *
       (this.length * this.width +
@@ -259,7 +263,7 @@ class CuboidMakerTwo {
   }
 }
 
-const cuboidTwo = new CuboidMakerTwo({ length: 4, width: 5, height: 5 });
+const cuboidTwo = new CuboidMakerTwo({ length: 4, width: 5, height: 5 }); //create a new object of CuboidMakerTwo names cuboidTwo
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
 //console.log(cuboidTwo.volume()); // 100
