@@ -28,7 +28,8 @@ For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you ma
 function summation(num) {
   let sum = 0;
   for (var i = 1; i <= num; i++) {
-    sum += i;
+    //go till we reach our number
+    sum += i; //ad index to current number
   }
   return sum;
 }
@@ -107,13 +108,14 @@ const zooAnimals = [
   */
 
 function animalNames(zooAnimals) {
-  const displayNames = [];
-  zooAnimals.forEach((item) =>
-    displayNames.push(
-      `name: ${item.animal_name}, scientific: ${item.scientific_name}`
-    )
+  const displayNames = []; //make new array for return
+  zooAnimals.forEach(
+    (item) =>
+      displayNames.push(
+        `name: ${item.animal_name}, scientific: ${item.scientific_name}`
+      ) //for every item in zooAnimals, push each name to displaNames with the string
   );
-  return displayNames;
+  return displayNames; //return array of names
 }
 
 /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -124,7 +126,7 @@ function animalNames(zooAnimals) {
 
 function lowerCaseNames(zooAnimals) {
   const names = [];
-  zooAnimals.map((item) => names.push(item.animal_name.toLowerCase()));
+  zooAnimals.map((item) => names.push(item.animal_name.toLowerCase())); //for every item in zooAnimals, put each name in the names array with lower case letters
   return names;
 }
 
@@ -134,7 +136,7 @@ function lowerCaseNames(zooAnimals) {
   */
 
 function lowPopulationAnimals(zooAnimals) {
-  const lowPop = zooAnimals.filter((item) => item.population < 5);
+  const lowPop = zooAnimals.filter((item) => item.population < 5); //filter the items from zooAnimals with a population less than 5 to lowPop
   return lowPop;
 }
 
@@ -146,7 +148,7 @@ function lowPopulationAnimals(zooAnimals) {
 
 function USApop(zooAnimals) {
   const num = zooAnimals.reduce((acu, item) => {
-    return acu + item.population;
+    return acu + item.population; //add each items population to accumulator
   }, 0);
   return num;
 }
@@ -161,26 +163,26 @@ function USApop(zooAnimals) {
  */
 
 function consume(a, b, cb) {
-  return cb(a, b);
+  return cb(a, b); //callback with a and b
 }
 
 /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
 // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
 
 function add(num1, num2) {
-  return num1 + num2;
+  return num1 + num2; //return the numbers added
 }
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
 
 function multiply(num1, num2) {
-  return num1 * num2;
+  return num1 * num2; //return the numbers multiplied
 }
 
 // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
 
 function greeting(first, last) {
-  return `Hello ${first} ${last}, nice to meet you!`;
+  return `Hello ${first} ${last}, nice to meet you!`; //return the string with the names in it
 }
 
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁
@@ -198,6 +200,7 @@ function greeting(first, last) {
 */
 
 function CuboidMaker(atr) {
+  //make an object the old way with taking an object as its parameters
   this.length = atr.length;
   this.width = atr.width;
   this.height = atr.height;
@@ -207,6 +210,7 @@ function CuboidMaker(atr) {
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 CuboidMaker.prototype.volume = function () {
+  //make a new prototype of CuboidMaker
   return this.length * this.width * this.height;
 };
 
@@ -258,8 +262,8 @@ class CuboidMakerTwo {
 const cuboidTwo = new CuboidMakerTwo({ length: 4, width: 5, height: 5 });
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-console.log(cuboidTwo.volume()); // 100
-console.log(cuboidTwo.surfaceArea()); // 130
+//console.log(cuboidTwo.volume()); // 100
+//console.log(cuboidTwo.surfaceArea()); // 130
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
 
